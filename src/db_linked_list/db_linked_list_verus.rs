@@ -1,6 +1,7 @@
+use vstd::prelude::*;
+use vstd::ptr::PPtr;
+
 verus! {
-    vstd::prelude::*;
-    vstd::ptr::PPtr;
 
     struct Node {
         prev: Option<PPtr<Node>>,
@@ -9,7 +10,7 @@ verus! {
     }
 
     impl Node {
-        pub spec fn well_formed(&self) -> bool {
+        pub open spec fn well_formed(&self) -> bool {
             //prev, next 패턴에 따른 스펙 정의
             match (&self.prev, &self.next) {
                 (Some(prev), Some(next)) =>
@@ -21,11 +22,11 @@ verus! {
             }
         }
 
-        pub spec fn is_tail(&self) -> bool {
+        pub open spec fn is_tail(&self) -> bool {
             self.next.is_none()
         }
 
-        pub spec fn is_head(&self) -> bool {
+        pub open spec fn is_head(&self) -> bool {
             self.prev.is_none()
         }
     }
@@ -37,7 +38,7 @@ verus! {
             node.well_formed(),
             result.well_formed(),
             result.is_tail(),
-            result.prev.is_some()
+            result.prev.is_some(),
             result.data == data
     {
 
