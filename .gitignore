@@ -1,0 +1,48 @@
+# Rust 컴파일 결과물
+/target/
+
+# Rust 크레이트 잠금 파일
+Cargo.lock
+
+# 백업 파일들
+**/*.rs.bk
+
+# IDE 관련 파일들 (예: VS Code, IntelliJ IDEA)
+.vscode/
+.idea/
+*.iml
+
+# MacOS 관련 파일
+.DS_Store
+
+# Windows 관련 파일
+Thumbs.db
+
+# 로그 파일
+*.log
+
+# 환경 변수 파일 (사용하는 경우)
+.env
+
+# 문서 생성 디렉토리 (rustdoc)
+/doc/
+
+# 프로필링 데이터
+/flamegraph.svg
+/perf.data
+/perf.data.old
+
+# 코드 커버리지 데이터
+*.profraw
+
+# rustfmt 백업 파일
+**/*.rs.fmt
+
+# 테스트 커버리지 디렉토리
+/coverage/
+
+# 사용자 정의 빌드 스크립트 (필요한 경우)
+/scripts/
+
+# 기타 임시 파일들
+*.tmp
