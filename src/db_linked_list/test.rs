@@ -14,8 +14,8 @@ mod tests {
     #[test]
     fn test_insert() {
         let head = Node::new(1);
-        insert(&head, 2);
-        insert(&head, 3);
+        push_back(&head, 2);
+        push_back(&head, 3);
 
         let second = head.borrow().next.as_ref().unwrap().clone();
         let third = second.borrow().next.as_ref().unwrap().clone();
@@ -35,7 +35,7 @@ mod tests {
     fn test_multiple_inserts() {
         let head = Node::new(1);
         for i in 2..6 {
-            insert(&head, i);
+            push_back(&head, i);
         }
 
         let mut current = Some(head.clone());

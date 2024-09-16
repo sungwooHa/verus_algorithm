@@ -1,4 +1,5 @@
 mod test;
+mod ver_verus;
 
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -9,7 +10,6 @@ pub struct Node {
     pub next: Option<Rc<RefCell<Node>>>,
     pub data: i32,
 }
-
 impl Node {
     pub fn new(data: i32) -> Rc<RefCell<Node>> {
         Rc::new(RefCell::new(Node {
@@ -20,7 +20,7 @@ impl Node {
     }
 }
 
-pub fn insert(node: &Rc<RefCell<Node>>, data: i32) {
+pub fn push_back(node: &Rc<RefCell<Node>>, data: i32) {
     let mut current = node.clone();
     loop {
         let next = {
@@ -45,3 +45,4 @@ pub fn print_list(head: &Rc<RefCell<Node>>) {
     }
     println!();
 }
+
