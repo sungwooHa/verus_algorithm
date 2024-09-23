@@ -31,7 +31,7 @@ verus! {
         }
     }
 
-    pub exec fn push_back(node: &PPtr<Node>, data: i32) -> PPtr<Node>
+    pub exec fn push_back(node: &PPtr<Node>, data: i32) -> (result: PPtr<Node>)
         requires
             node.well_formed(),
         ensures
@@ -60,7 +60,7 @@ verus! {
         new_node
     }
 
-    pub exec fn new_node(data: i32) -> PPtr<Node>
+    pub exec fn new_node(data: i32) -> (result: PPtr<Node>)
         ensures
             result.well_formed(),
             result.is_tail(),
